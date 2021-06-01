@@ -97,10 +97,10 @@ namespace Postquest.Controller
         /// </summary>
         public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
         {
-            if (_lookInputVector != Vector3.zero && OrientationSharpness > 0f)
+            if (_moveInputVector != Vector3.zero && OrientationSharpness > 0f)
             {
                 // Smoothly interpolate from current to target look direction
-                Vector3 smoothedLookInputDirection = Vector3.Slerp(Motor.CharacterForward, _lookInputVector, 1 - Mathf.Exp(-OrientationSharpness * deltaTime)).normalized;
+                Vector3 smoothedLookInputDirection = Vector3.Slerp(Motor.CharacterForward, _moveInputVector, 1 - Mathf.Exp(-OrientationSharpness * deltaTime)).normalized;
 
                 // Set the current rotation (which will be used by the KinematicCharacterMotor)
                 currentRotation = Quaternion.LookRotation(smoothedLookInputDirection, Motor.CharacterUp);
