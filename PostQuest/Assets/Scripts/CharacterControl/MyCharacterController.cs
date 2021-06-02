@@ -118,7 +118,7 @@ namespace Postquest.Controller
             Vector3 targetMovementVelocity = Vector3.zero;
             if (Motor.GroundingStatus.IsStableOnGround)
             {
-                animator.SetBool("ToughingGround", true);
+                animator.SetBool("TouchingGround", true);
 
                 // Reorient velocity on slope
                 currentVelocity = Motor.GetDirectionTangentToSurface(currentVelocity, Motor.GroundingStatus.GroundNormal) * currentVelocity.magnitude;
@@ -134,7 +134,7 @@ namespace Postquest.Controller
             }
             else
             {
-                animator.SetBool("ToughingGround", false);
+                animator.SetBool("TouchingGround", false);
                 animator.SetFloat("YDirection", currentVelocity.y);
                 // Add move input
                 if (_moveInputVector.sqrMagnitude > 0f)
