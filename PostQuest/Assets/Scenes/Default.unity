@@ -848,30 +848,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1348971556 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 733379090453932621, guid: cc8d525dc029cab48826a64d106d7d12, type: 3}
-  m_PrefabInstance: {fileID: 3577282863493304074}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1348971558
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348971556}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0444b287702b63147a1a4d10e8481f06, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2654304abcc65d7489f5e42aa29f8975, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1551587645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -996,96 +972,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7b3263440d2fce2469af539f2ea112d4, type: 3}
   m_PrefabInstance: {fileID: 1657566050}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1824284821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3885482564382727269, guid: cc8d525dc029cab48826a64d106d7d12, type: 3}
-  m_PrefabInstance: {fileID: 3577282863493304074}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1824284824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824284821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9ac8d30c6a0d9642a11e5be4c440740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Root: {fileID: 1975696471}
-  m_UpdateRate: 60
-  m_UpdateMode: 3
-  m_Damping: 0.5
-  m_DampingDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Elasticity: 1
-  m_ElasticityDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Stiffness: 0
-  m_StiffnessDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Inert: 1
-  m_InertDistrib:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.012500763
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Friction: 0
-  m_FrictionDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Radius: 0
-  m_RadiusDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_EndLength: 0
-  m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: 0, z: 0}
-  m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
-  m_Exclusions: []
-  m_FreezeAxis: 0
-  m_DistantDisable: 0
-  m_ReferenceObject: {fileID: 0}
-  m_DistanceToObject: 20
 --- !u!1001 &1882561522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1147,11 +1033,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6e73d5ad97bcae4479606a8f6e375fa7, type: 3}
   m_PrefabInstance: {fileID: 1882561522}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1975696471 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7850933315380879923, guid: cc8d525dc029cab48826a64d106d7d12, type: 3}
-  m_PrefabInstance: {fileID: 3577282863493304074}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2141780782 stripped
 Transform:
@@ -1237,14 +1118,6 @@ PrefabInstance:
     - target: {fileID: 3577282863897217334, guid: cc8d525dc029cab48826a64d106d7d12, type: 3}
       propertyPath: m_Name
       value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 3577282863897217335, guid: cc8d525dc029cab48826a64d106d7d12, type: 3}
-      propertyPath: MaxAirMoveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3577282863897217335, guid: cc8d525dc029cab48826a64d106d7d12, type: 3}
-      propertyPath: MaxStableMoveSpeed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3577282863897217354, guid: cc8d525dc029cab48826a64d106d7d12, type: 3}
       propertyPath: m_RootOrder
