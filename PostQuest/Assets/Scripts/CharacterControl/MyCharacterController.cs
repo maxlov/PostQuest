@@ -17,7 +17,6 @@ namespace Postquest.Controller
     public class MyCharacterController : MonoBehaviour, ICharacterController
     {
         public KinematicCharacterMotor Motor;
-        public Animator animator;
 
         [Header("Stable Movement")]
         public float MaxStableMoveSpeed = 10f;
@@ -118,11 +117,8 @@ namespace Postquest.Controller
             Vector3 targetMovementVelocity = Vector3.zero;
             if (Motor.GroundingStatus.IsStableOnGround)
             {
-                animator.SetBool("TouchingGround", true);
-
                 // Reorient velocity on slope
                 currentVelocity = Motor.GetDirectionTangentToSurface(currentVelocity, Motor.GroundingStatus.GroundNormal) * currentVelocity.magnitude;
-                animator.SetFloat("Speed", currentVelocity.magnitude);
 
                 // Calculate target velocity
                 Vector3 inputRight = Vector3.Cross(_moveInputVector, Motor.CharacterUp);
@@ -134,8 +130,6 @@ namespace Postquest.Controller
             }
             else
             {
-                animator.SetBool("TouchingGround", false);
-                animator.SetFloat("YDirection", currentVelocity.y);
                 // Add move input
                 if (_moveInputVector.sqrMagnitude > 0f)
                 {
