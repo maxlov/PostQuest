@@ -10,9 +10,8 @@ namespace Postquest.Controller
 {
     public class MyPlayer : MonoBehaviour
     {
-        //public ExampleCharacterCamera OrbitCamera;
-        public Transform ThirdPersonCamera;
-        public Transform CameraFollowTarget;
+        public ExampleCharacterCamera OrbitCamera;
+        public Transform CameraFollowPoint;
         public MyCharacterController Character;
 
         private const string MouseXInput = "Mouse X";
@@ -26,11 +25,11 @@ namespace Postquest.Controller
             Cursor.lockState = CursorLockMode.Locked;
 
             // Tell camera to follow transform
-            //OrbitCamera.SetFollowTransform(CameraFollowPoint);
+            OrbitCamera.SetFollowTransform(CameraFollowPoint);
 
             // Ignore the character's collider(s) for camera obstruction checks
-            //OrbitCamera.IgnoredColliders.Clear();
-            //OrbitCamera.IgnoredColliders.AddRange(Character.GetComponentsInChildren<Collider>());
+            OrbitCamera.IgnoredColliders.Clear();
+            OrbitCamera.IgnoredColliders.AddRange(Character.GetComponentsInChildren<Collider>());
         }
 
         private void Update()
@@ -66,6 +65,15 @@ namespace Postquest.Controller
 #if UNITY_WEBGL
         scrollInput = 0f;
 #endif
+
+            // Apply inputs to the camera
+            OrbitCamera.UpdateWithInput(Time.deltaTime, scrollInput, lookInputVector);
+
+            // Handle toggling zoom level
+            if (Input.GetMouseButtonDown(1))
+            {
+                OrbitCamera.TargetDistance = (OrbitCamera.TargetDistance == 0f) ? OrbitCamera.DefaultDistance : 0f;
+            }
         }
 
         private void HandleCharacterInput()
@@ -75,7 +83,7 @@ namespace Postquest.Controller
             // Build the CharacterInputs struct
             characterInputs.MoveAxisForward = Input.GetAxisRaw(VerticalInput);
             characterInputs.MoveAxisRight = Input.GetAxisRaw(HorizontalInput);
-            characterInputs.CameraRotation = ThirdPersonCamera.rotation;
+            characterInputs.CameraRotation = OrbitCamera.Transform.rotation;
             characterInputs.JumpDown = Input.GetKeyDown(KeyCode.Space);
 
             // Apply inputs to character
