@@ -73,6 +73,9 @@ namespace Postquest.Controller
             characterInputs.MoveAxisRight = Input.GetAxisRaw(HorizontalInput);
             characterInputs.CameraRotation = ThirdPersonCamera.rotation;
             characterInputs.JumpDown = Input.GetKeyDown(KeyCode.Space);
+            characterInputs.DiveDown = Input.GetKeyDown(KeyCode.LeftShift);
+            characterInputs.CrouchDown = Input.GetKeyDown(KeyCode.C);
+            characterInputs.CrouchUp = Input.GetKeyUp(KeyCode.C);
 
             // Apply inputs to character
             Character.SetInputs(ref characterInputs);
