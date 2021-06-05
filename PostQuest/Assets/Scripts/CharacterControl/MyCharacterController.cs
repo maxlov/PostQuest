@@ -44,6 +44,14 @@ namespace Postquest.Controller
         public float JumpPreGroundingGraceTime = 0f;
         public float JumpPostGroundingGraceTime = 0f;
 
+        [Header("Dive")]
+        public bool AllowDivingWhenSliding = false;
+        public float DiveSpeed = 10f;
+        public float DiveScalableForwardSpeed = 10f;
+        public float DivePreGroundingGraceTime = 0f;
+        public float DivePostGroundingGraceTime = 0f;
+        public float DiveDelay = 0f;
+
         [Header("Misc")]
         public List<Collider> IgnoredColliders = new List<Collider>();
         public float BonusOrientationSharpness = 10f;
@@ -70,6 +78,7 @@ namespace Postquest.Controller
         private bool _divedThisFrame = false;
         private float _timeSinceDiveRequested = Mathf.Infinity;
         private float _timeSinceLastAbleToDive = 0f;
+        private float _timeDiveCooldown = 0f;
 
         private Vector3 _internalVelocityAdd = Vector3.zero;
         private bool _shouldBeCrouching = false;
@@ -333,6 +342,37 @@ namespace Postquest.Controller
                             }
                         }
 
+                        // Handle diving
+                        _divedThisFrame = false;
+                        _timeSinceDiveRequested += deltaTime;
+                        if (_diveRequested)
+                        {
+                            // See if we actually are allowed to dive
+                            if (!_diveConsumed && _timeSinceLastAbleToDive <= DivePostGroundingGraceTime && _timeDiveCooldown > DiveDelay)
+                            {
+                                // Calculate dive direction
+                                Vector3 diveDirection = Motor.CharacterUp + Motor.CharacterForward;
+                                if (Motor.GroundingStatus.FoundAnyGround && !Motor.GroundingStatus.IsStableOnGround)
+                                {
+                                    diveDirection = Motor.GroundingStatus.GroundNormal + Motor.CharacterForward;
+                                }
+
+                                // Makes the character skip ground probing/snapping on its next update. 
+                                // If this line weren't here, the character would remain snapped to the ground when trying to jump. Try commenting this line out and see.
+                                Motor.ForceUnground();
+
+                                // Add to the return velocity and reset dive state
+                                currentVelocity += (diveDirection * DiveSpeed) - Vector3.Project(currentVelocity, Motor.CharacterUp + Motor.CharacterForward);
+                                currentVelocity += Motor.CharacterForward * DiveScalableForwardSpeed;
+                                currentVelocity -= Motor.CharacterForward * MaxStableMoveSpeed;
+                                _diveRequested = false;
+                                _diveConsumed = true;
+                                _divedThisFrame = true;
+                                _timeDiveCooldown = 0f;
+                                animator.SetBool("Dive", true);
+                            }
+                        }
+
                         // Take into account additive velocity
                         if (_internalVelocityAdd.sqrMagnitude > 0f)
                         {
@@ -375,6 +415,31 @@ namespace Postquest.Controller
                             {
                                 // Keep track of time since we were last able to jump (for grace period)
                                 _timeSinceLastAbleToJump += deltaTime;
+                            }
+                        }
+
+                        // Handle dive-related values
+                        {
+                            // Handle diving pre-ground grace period and dive delay
+                            if (_diveRequested && _timeDiveCooldown > DiveDelay)
+                            {
+                                _diveRequested = false;
+                            }
+                            if (AllowDivingWhenSliding ? Motor.GroundingStatus.FoundAnyGround : Motor.GroundingStatus.IsStableOnGround)
+                            {
+                                // If we're on a ground surface, reset diving values
+                                if (!_divedThisFrame)
+                                {
+                                    _diveConsumed = false;
+                                }
+                                _timeSinceLastAbleToDive = 0f;
+                                _timeDiveCooldown += deltaTime;
+                                animator.SetBool("Dive", false);
+                            }
+                            else
+                            {
+                                // Keep track of time since we were last able to dive (for grace period)
+                                _timeSinceLastAbleToDive += deltaTime;
                             }
                         }
 
