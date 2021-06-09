@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
 
     public static int score;
-    public static int scoreAdd;
+    public int scoreAdd;
     static int scoreTarget;
     float lerp = 0f;
     float duration;
