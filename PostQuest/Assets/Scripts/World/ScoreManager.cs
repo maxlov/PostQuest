@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     static int scoreTarget;
     float lerp = 0f;
     float duration;
+    public float durationDiv = 10;
     public TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
@@ -32,14 +33,18 @@ public class ScoreManager : MonoBehaviour
         if (scoreAdd > 0)
         {
             scoreTarget = score + scoreAdd;
-            duration = scoreAdd / 100;
+            duration = scoreAdd / durationDiv;
             scoreAdd = 0;
         }
         if (score != scoreTarget)
         {
-            lerp += Time.deltaTime / duration;
-            score = (int)Mathf.Lerp(score, scoreTarget, lerp);
+            lerp += Time.deltaTime;
+            score = (int)Mathf.Lerp(score, scoreTarget, lerp / duration);
             scoreText.text = "Score: " + score;
+        }
+        else
+        {
+            lerp = 0;
         }
     }
 }
