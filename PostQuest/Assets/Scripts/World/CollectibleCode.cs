@@ -12,9 +12,24 @@ public class CollectibleCode : MonoBehaviour
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
 
+    public string collectibleType = "letter";
+    int value = 0;
+
     void Start()
     {
         posOffset = transform.position;
+        switch (collectibleType)
+        {
+            case "box":
+                value = 1000;
+                break;
+            case "scroll":
+                value = 500;
+                break;
+            default:
+                value = 200;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -26,5 +41,16 @@ public class CollectibleCode : MonoBehaviour
         transform.position = tempPos;
 
         transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+    }
+
+    private void OnDestroy()
+    {
+        switch (collectibleType)
+        {
+            case "box":
+                break;
+            default:
+                break;
+        }
     }
 }
