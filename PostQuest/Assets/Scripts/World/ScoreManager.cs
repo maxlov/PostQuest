@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
 
     public static int score;
-    public int scoreAdd;
+    public static int scoreAdd;
     static int scoreTarget;
     float lerp = 0f;
     float duration;
@@ -21,9 +21,9 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    public void UpdateScore(int scoreToAdd)
+    public static void UpdateScore(int scoreToAdd)
     {
-        scoreAdd = scoreToAdd;
+        scoreAdd += scoreToAdd;
     }
 
     // Update is called once per frame

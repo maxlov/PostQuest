@@ -12,6 +12,10 @@ public class CollectibleCode : MonoBehaviour
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
 
+    public AudioSource pickup;
+    //public AudioSource paper;
+    //public AudioSource box;
+
     public string collectibleType = "letter";
     int value = 0;
 
@@ -42,15 +46,24 @@ public class CollectibleCode : MonoBehaviour
 
         transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
     }
-
-    private void OnDestroy()
+    private void OnTriggerEnter(Collider other)
     {
-        switch (collectibleType)
+        if (other.CompareTag("Player"))
         {
-            case "box":
-                break;
-            default:
-                break;
+            pickup.Play();
+            Debug.Log("sound");
+            /*switch (collectibleType)
+            {
+                case "box":
+                    box.Play();
+                    break;
+                default:
+                    paper.Play();
+                    break;
+            }*/
+            Debug.Log(value);
+            ScoreManager.UpdateScore(value);
+            Destroy(gameObject);
         }
     }
 }
