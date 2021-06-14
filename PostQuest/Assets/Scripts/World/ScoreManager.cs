@@ -7,8 +7,8 @@ public class ScoreManager : MonoBehaviour
 {
 
     public static int score;
-    public static int scoreAdd;
-    static int scoreTarget;
+    public int scoreAdd;
+    public static int scoreTarget;
     float lerp = 0f;
     float duration;
     public float durationDiv = 10;
@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    public static void UpdateScore(int scoreToAdd)
+    public void UpdateScore(int scoreToAdd)
     {
         scoreAdd += scoreToAdd;
     }
@@ -40,6 +40,10 @@ public class ScoreManager : MonoBehaviour
         {
             lerp += Time.deltaTime;
             score = (int)Mathf.Lerp(score, scoreTarget, lerp / duration);
+            if (score >= scoreTarget - 2 && score <= scoreTarget + 2)
+            {
+                score = scoreTarget;
+            }
             scoreText.text = "Score: " + score;
         }
         else

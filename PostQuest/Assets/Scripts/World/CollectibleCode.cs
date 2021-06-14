@@ -12,7 +12,10 @@ public class CollectibleCode : MonoBehaviour
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
 
+    private GameObject GameManager;
+
     public AudioSource pickup;
+    public AudioClip pickupClip;
     //public AudioSource paper;
     //public AudioSource box;
 
@@ -21,6 +24,7 @@ public class CollectibleCode : MonoBehaviour
 
     void Start()
     {
+        GameManager = GameObject.Find("GameManager");
         posOffset = transform.position;
         switch (collectibleType)
         {
@@ -50,8 +54,7 @@ public class CollectibleCode : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            pickup.Play();
-            Debug.Log("sound");
+            pickup.PlayOneShot(pickupClip);
             /*switch (collectibleType)
             {
                 case "box":
@@ -61,9 +64,8 @@ public class CollectibleCode : MonoBehaviour
                     paper.Play();
                     break;
             }*/
-            Debug.Log(value);
-            ScoreManager.UpdateScore(value);
-            Destroy(gameObject);
+            GameManager.GetComponent<ScoreManager>().UpdateScore(value);
+            Destroy(gameObject, .2f);
         }
     }
 }
