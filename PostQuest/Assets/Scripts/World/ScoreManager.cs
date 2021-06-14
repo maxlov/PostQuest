@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     float lerp = 0f;
     float duration;
     public float durationDiv = 10;
-    private TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
