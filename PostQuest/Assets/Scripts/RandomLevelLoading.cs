@@ -11,7 +11,7 @@ public class RandomLevelLoading : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetMouseButtonDown(0))
+		/*if (Input.GetMouseButtonDown(0))
 		{
             if (SceneManager.GetActiveScene().buildIndex == 0)
 			{
@@ -21,10 +21,10 @@ public class RandomLevelLoading : MonoBehaviour
 			{
                 StartCoroutine(LoadLevel(0));
             }
-		}
+		}*/
     }
 
-    IEnumerator LoadLevel(int levelIndex)
+    public IEnumerator LoadLevel(int levelIndex)
 	{
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
