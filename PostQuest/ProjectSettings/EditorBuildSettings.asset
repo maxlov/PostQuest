@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/Overworld.unity
+    guid: 17c68480aaba1794090923ef84e99235
+  - enabled: 1
+    path: Assets/Scenes/Forrest Levels/Forrest1.unity
+    guid: a80997fb2d9948f49b700ccd75a31955
+  - enabled: 1
+    path: Assets/Scenes/Forrest Levels/Forrest2.unity
+    guid: 64610224dd041904882245b31ef7aa6f
+  - enabled: 1
+    path: Assets/Scenes/Forrest Levels/Forrest3.unity
+    guid: ef18874257a690645b762539d4a24fc6
+  - enabled: 1
+    path: Assets/Scenes/Forrest Levels/Forrest4.unity
+    guid: 559c5c62fccf1e143ba7e01165f47891
+  - enabled: 1
+    path: Assets/Scenes/Forrest Levels/Forrest5.unity
+    guid: 5d7fa8514715af54fb2cfab58c6038c3
   m_configObjects: {}
