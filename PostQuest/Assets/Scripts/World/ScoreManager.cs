@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     float lerp = 0f;
     float duration;
     public float durationDiv = 10;
-    public TextMeshProUGUI scoreText;
+    private TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour
         // Buttery smooth score change
         if (scoreAdd > 0)
         {
-            scoreTarget = score + scoreAdd;
+            scoreTarget = scoreAdd + scoreTarget;
             duration = scoreAdd / durationDiv;
             scoreAdd = 0;
         }
