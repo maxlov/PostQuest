@@ -5,33 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class RandomLevelLoading : MonoBehaviour
 {
-    
-    /*
-    private static RandomLevelLoading _instance = null;
-    protected RandomLevelLoading() {}
 
-    public static RandomLevelLoading Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new RandomLevelLoading();
-            }
-            return _instance;
-        }
-    }
-    */
     public Animator transition;
     public float transitionTime = 1f;
 
     public int baseEncounterThreshold = 5;
     private int EncounterThreshold;
 
-    private void Awake()
+    /*private void Awake()
     {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("levelloader");
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+
         EncounterThreshold = baseEncounterThreshold;
-    }
+    }*/
 
     // Update is called once per frame
     void FixedUpdate()
@@ -42,9 +33,10 @@ public class RandomLevelLoading : MonoBehaviour
             float Horizontal = Input.GetAxisRaw("Horizontal");
             if (Vertical > 0 || Horizontal > 0)
             {
-                if (Random.Range(0, 100) <= EncounterThreshold)
+                Debug.Log(EncounterThreshold);
+                if (Random.Range(0, 1000) <= EncounterThreshold)
                 {
-                    StartCoroutine(LoadLevel(Random.Range(1, 5)));
+                    StartCoroutine(LoadLevel(Random.Range(1, 6)));
                 }
                 else
                 {
