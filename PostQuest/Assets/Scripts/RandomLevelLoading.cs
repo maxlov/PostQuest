@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RandomLevelLoading : MonoBehaviour
 {
+    
+    /*
     private static RandomLevelLoading _instance = null;
     protected RandomLevelLoading() {}
 
@@ -19,16 +21,36 @@ public class RandomLevelLoading : MonoBehaviour
             return _instance;
         }
     }
-
+    */
     public Animator transition;
     public float transitionTime = 1f;
 
+    public int baseEncounterThreshold = 5;
+    private int EncounterThreshold;
+
+    private void Awake()
+    {
+        EncounterThreshold = baseEncounterThreshold;
+    }
+
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
 		{
-            //overWorldCoors = 
+            float Vertical = Input.GetAxisRaw("Vertical");
+            float Horizontal = Input.GetAxisRaw("Horizontal");
+            if (Vertical > 0 || Horizontal > 0)
+            {
+                if (Random.Range(0, 100) <= EncounterThreshold)
+                {
+                    StartCoroutine(LoadLevel(Random.Range(1, 5)));
+                }
+                else
+                {
+                    EncounterThreshold += 1;
+                }
+            }
 		}
     }
 
