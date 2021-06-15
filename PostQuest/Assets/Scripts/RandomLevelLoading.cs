@@ -5,23 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class RandomLevelLoading : MonoBehaviour
 {
+    private static RandomLevelLoading _instance = null;
+    protected RandomLevelLoading() {}
+
+    public static RandomLevelLoading Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new RandomLevelLoading();
+            }
+            return _instance;
+        }
+    }
+
     public Animator transition;
     public float transitionTime = 1f;
 
     // Update is called once per frame
     void Update()
     {
-		/*if (Input.GetMouseButtonDown(0))
+        if (SceneManager.GetActiveScene().buildIndex == 0)
 		{
-            if (SceneManager.GetActiveScene().buildIndex == 0)
-			{
-                StartCoroutine(LoadLevel(Random.Range(1, 5)));
-			}
-			else
-			{
-                StartCoroutine(LoadLevel(0));
-            }
-		}*/
+            //overWorldCoors = 
+		}
     }
 
     public IEnumerator LoadLevel(int levelIndex)
