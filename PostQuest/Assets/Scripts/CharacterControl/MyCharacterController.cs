@@ -36,6 +36,7 @@ namespace Postquest.Controller
         public float MaxAirMoveSpeed = 15f;
         public float AirAccelerationSpeed = 15f;
         public float Drag = 0.1f;
+        public float maxDepth = -100;
 
         [Header("Jumping")]
         public bool AllowJumpingWhenSliding = false;
@@ -87,6 +88,8 @@ namespace Postquest.Controller
         private Vector3 lastInnerNormal = Vector3.zero;
         private Vector3 lastOuterNormal = Vector3.zero;
 
+        private Vector3 spawn;
+
 
         private void Awake()
         {
@@ -95,6 +98,8 @@ namespace Postquest.Controller
 
             // Assign the characterController to the motor
             Motor.CharacterController = this;
+
+            spawn = transform.position;
         }
 
         /// <summary>
@@ -467,6 +472,10 @@ namespace Postquest.Controller
                         }
                         break;
                     }
+            }
+            if (transform.position.y < maxDepth)
+            {
+                Motor.SetPosition(spawn);
             }
         }
 
