@@ -21,11 +21,12 @@ public class RandomLevelLoading : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             Instantiate(pValues.myPrefab, pValues.OverworldSpawn, Quaternion.identity);
+            InvokeRepeating("loadEncounter", 1.0f, 1.0f);
         }
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void loadEncounter()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
 		{
@@ -34,7 +35,7 @@ public class RandomLevelLoading : MonoBehaviour
             if (Vertical > 0 || Horizontal > 0)
             {
                 Debug.Log(EncounterThreshold);
-                if (Random.Range(0, 1000) <= EncounterThreshold)
+                if (Random.Range(0, 100) <= EncounterThreshold)
                 {
                     StartCoroutine(LoadLevel(Random.Range(1, 6)));
                 }

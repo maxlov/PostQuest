@@ -5,7 +5,7 @@ using UnityEngine;
 public class PersitentValues : MonoBehaviour
 {
     public int score;
-    public Vector3 OverworldSpawn;
+    public Vector3 OverworldSpawn = new Vector3 (-130, 12, -530);
     public GameObject myPrefab;
 
     // Start is called before the first frame update
