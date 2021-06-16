@@ -12,17 +12,17 @@ public class RandomLevelLoading : MonoBehaviour
     public int baseEncounterThreshold = 5;
     private int EncounterThreshold;
 
-    /*private void Awake()
-    {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("levelloader");
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
+    PersitentValues pValues;
 
-        EncounterThreshold = baseEncounterThreshold;
-    }*/
+    private void Awake()
+    {
+        GameObject ValueManager = GameObject.Find("ValueManager");
+        pValues = ValueManager.GetComponent<PersitentValues>();
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Instantiate(pValues.myPrefab, pValues.OverworldSpawn, Quaternion.identity);
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -48,6 +48,10 @@ public class RandomLevelLoading : MonoBehaviour
 
     public IEnumerator LoadLevel(int levelIndex)
 	{
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            pValues.OverworldSpawn = GameObject.Find("Character").transform.position;
+        }
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);

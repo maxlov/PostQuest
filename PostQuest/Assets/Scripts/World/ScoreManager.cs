@@ -13,11 +13,15 @@ public class ScoreManager : MonoBehaviour
     float duration;
     public float durationDiv = 10;
     public TextMeshProUGUI scoreText;
+    PersitentValues pValues;
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        GameObject ValueManager = GameObject.Find("ValueManager");
+        pValues = ValueManager.GetComponent<PersitentValues>();
+        score = pValues.score;
+        scoreTarget = score;
         scoreText.text = "Score: " + score;
     }
 
@@ -50,5 +54,10 @@ public class ScoreManager : MonoBehaviour
         {
             lerp = 0;
         }
+    }
+
+    private void OnDestroy()
+    {
+        pValues.score = score;
     }
 }
