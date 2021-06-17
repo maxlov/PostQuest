@@ -1,3 +1,4 @@
+![Image of Overworld](island.png)
 ## Welcome to a PostQuest!
 
 You can use the [editor on GitHub](https://github.com/maxlov/PostQuest/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
