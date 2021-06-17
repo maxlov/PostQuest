@@ -2,10 +2,7 @@
 ## Welcome to a PostQuest!
 
 PostQuest is a game concept prototype created by Erickson Pascke and Maxwell Lovell, inspired by our love for fun 3D platformers and RPGs!
-The idea was to learn unity and try to develop an idea that merges two different game genres.
-In traditional RPGs (Role Playing Games), players control an avatar through an emulated world and would have random encounters along their journey to fight monsters.
-In our game, instead of encountering these turn based battles, the idea is to place the character into a 3d obstacle course instead.
-We wanted to test out how this could be programmed and if the excitement of random platforming challenges could be fun and interesting.
+
 
 ## Features
 
@@ -20,5 +17,17 @@ We decided to use Kinematic Character Controller to create smooth and nice feeli
 
 ## About
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/maxlov/PostQuest/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The idea was to learn unity and try to develop an idea that merges two different game genres.
+In traditional RPGs (Role Playing Games), players control an avatar through an emulated world and would have random encounters along their journey to fight monsters.
+In our game, instead of encountering these turn based battles, the idea is to place the character into a 3d obstacle course instead.
+We wanted to test out how this could be programmed and if the excitement of random platforming challenges could be fun and interesting.
+
+Creators:
+- Erickson Pascke
+  - https://github.com/epaschke22 
+  - https://www.linkedin.com/in/erickson-paschke-79802782/
+- Maxwell Lovell
+  - https://github.com/maxlov
+  - https://www.linkedin.com/in/maxwell-lovell-702774186/
+
 
