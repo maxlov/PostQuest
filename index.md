@@ -8,11 +8,11 @@ We decided to create a small experience where players can jump and dive through 
 
 PostQuest is a simple experience but plenty of fun, check out what we have:
 
-### Overworld
+- ### Overworld
 We have a large island that you can explore, walk around the environment and check out the buildings.
-### Levels
+- ### Levels
 Randomly as you walk you may be transported into a short level! Complete it to escape, they are designed to be fun to get through and allow room to master it.
-### Movement
+- ### Movement
 We decided to use Kinematic Character Controller to create smooth and nice feeling controls. Postboy has a wonderful design and animations you can watch as you play!
 
 ## About
