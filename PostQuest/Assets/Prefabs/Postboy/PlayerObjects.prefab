@@ -59,8 +59,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8666066922449619219}
-  m_LocalRotation: {x: 0.45574266, y: 0.00000002673384, z: -0.000000013687893, w: 0.89011157}
-  m_LocalPosition: {x: 0, y: 0, z: -291.6144}
+  m_LocalRotation: {x: 0.043972816, y: -0, z: -0, w: 0.99903274}
+  m_LocalPosition: {x: 0, y: 0, z: -13.402139}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8666066923360162337}
@@ -68,7 +68,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -252.79507, y: 120.12715}
+  m_AnchoredPosition: {x: 0.8615227, y: 2.080769}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!20 &8666066922449619180
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8666066922890738133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9ac8d30c6a0d9642a11e5be4c440740, type: 3}
   m_Name: 
@@ -1978,6 +1978,7 @@ MonoBehaviour:
   MaxAirMoveSpeed: 8
   AirAccelerationSpeed: 5
   Drag: 0.1
+  maxDepth: -100
   AllowJumpingWhenSliding: 0
   JumpUpSpeed: 10
   JumpScalableForwardSpeed: 1

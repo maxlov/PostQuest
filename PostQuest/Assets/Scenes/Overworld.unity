@@ -2223,6 +2223,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3608731497317667620, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608731497317667620, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608731497317667620, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608731497673655584, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7859183016238582652, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
       propertyPath: OverworldSpawn.x
       value: 0
@@ -2241,15 +2257,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7859183016238582653, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -131.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7859183016238582653, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7859183016238582653, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -531.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7859183016238582653, guid: f97acb5d4e527864bb4acc6a6ae3d645, type: 3}
       propertyPath: m_LocalRotation.w
