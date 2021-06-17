@@ -37,7 +37,7 @@ public class RandomLevelLoading : MonoBehaviour
                 Debug.Log(EncounterThreshold);
                 if (Random.Range(0, 100) <= EncounterThreshold)
                 {
-                    StartCoroutine(LoadLevel(Random.Range(1, 6)));
+                    StartCoroutine(LoadLevel(Random.Range(1, 7)));
                 }
                 else
                 {
