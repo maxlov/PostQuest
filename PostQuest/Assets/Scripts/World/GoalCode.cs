@@ -16,15 +16,11 @@ public class GoalCode : MonoBehaviour
         LevelLoader = GameObject.Find("LevelLoader");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    // send player  back to overworld on collision
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //success.PlayOneShot(successClip);
             StartCoroutine(LevelLoader.GetComponent<RandomLevelLoading>().LoadLevel(levelTarget));
         }
     }
