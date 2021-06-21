@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CollectibleCode : MonoBehaviour
 {
-    // Start is called before the first frame update
     private float bobIntensity = .25f;
     private float bobFrequency = .25f;
     float rotateSpeed = 50.0f;
@@ -22,6 +21,7 @@ public class CollectibleCode : MonoBehaviour
     public string collectibleType = "letter";
     int value = 0;
 
+    // sets value of collectible based on kind
     void Start()
     {
         GameManager = GameObject.Find("GameManager");
@@ -40,7 +40,7 @@ public class CollectibleCode : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // Adds nice little spin and bob to the collectible
     void Update()
     {
         tempPos = posOffset;
@@ -50,20 +50,12 @@ public class CollectibleCode : MonoBehaviour
 
         transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
     }
+    // plays sound, updates score, and destroys self on player collision
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             pickup.PlayOneShot(pickupClip);
-            /*switch (collectibleType)
-            {
-                case "box":
-                    box.Play();
-                    break;
-                default:
-                    paper.Play();
-                    break;
-            }*/
             GameManager.GetComponent<ScoreManager>().UpdateScore(value);
             Destroy(gameObject, .2f);
         }
