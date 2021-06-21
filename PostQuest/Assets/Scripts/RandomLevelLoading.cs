@@ -14,6 +14,7 @@ public class RandomLevelLoading : MonoBehaviour
 
     PersitentValues pValues;
 
+    // on start find the values and if in overworld start rng encounter function
     private void Awake()
     {
         GameObject ValueManager = GameObject.Find("ValueManager");
@@ -25,7 +26,7 @@ public class RandomLevelLoading : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // randomly loads 'encounter' level. Runs every second
     void loadEncounter()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -46,7 +47,7 @@ public class RandomLevelLoading : MonoBehaviour
             }
 		}
     }
-
+    // function to load levels. saves overworld pos if in overworld.
     public IEnumerator LoadLevel(int levelIndex)
 	{
         if (SceneManager.GetActiveScene().buildIndex == 0)
