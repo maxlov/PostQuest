@@ -64,8 +64,8 @@ sysinfo.txt
 *.unitypackage
 
 # Imported assets and packages
-/[Aa]ssets/ImportedAssets*
-/[Aa]ssets/ImportedPackages*
+ImportedAssets
+ImportedPackages
 
 # Crashlytics generated file
 crashlytics-build.properties
